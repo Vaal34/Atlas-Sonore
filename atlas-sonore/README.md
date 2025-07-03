@@ -1,24 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Atlas Sonore
 
-## Getting Started
+Un projet Next.js avec authentification Supabase pour une application musicale.
 
-First, run the development server:
+## Structure du projet
+
+```
+atlas-sonore/
+├── scripts/           # Scripts utilitaires (Python, etc.)
+│   └── spotify_token.py
+├── src/
+│   ├── app/          # Routes Next.js App Router
+│   │   ├── api/      # Routes API
+│   │   ├── auth/     # Pages d'authentification
+│   │   ├── profile/  # Page de profil
+│   │   ├── private/  # Pages privées
+│   │   └── error/    # Page d'erreur
+│   ├── components/   # Composants React
+│   │   ├── ui/       # Composants UI réutilisables
+│   │   └── index.ts  # Export centralisé
+│   ├── lib/          # Bibliothèques et utilitaires
+│   │   ├── utils.ts  # Utilitaires UI (Tailwind CSS)
+│   │   └── supabase.ts # Exports Supabase centralisés
+│   └── utils/        # Configuration et utilitaires spécifiques
+│       └── supabase/ # Configuration Supabase
+└── public/           # Assets statiques
+```
+
+## Technologies utilisées
+
+- **Next.js 15** - Framework React avec App Router
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Framework CSS utilitaire
+- **Supabase** - Backend-as-a-Service (authentification, base de données)
+- **Framer Motion** - Animations
+- **Lucide React** - Icônes
+
+## Démarrage
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Créer un fichier `.env.local` avec vos clés Supabase :
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+2. Pour l'API Spotify, créer un fichier `.env` avec :
+```env
+SPOTIFY_ID=your_spotify_client_id
+SPOTIFY_SECRET=your_spotify_client_secret
+```
+
+## Scripts utiles
+
+- `npm run dev` - Démarre le serveur de développement
+- `npm run build` - Build de production
+- `npm run start` - Démarre le serveur de production
+- `npm run lint` - Vérification ESLint
+- `python scripts/spotify_token.py` - Génère un token d'accès Spotify
+
+## Architecture
+
+Le projet suit les meilleures pratiques Next.js 15 avec une organisation claire :
+
+- **Séparation des responsabilités** : UI, logique métier, et configuration
+- **Imports centralisés** : Tous les composants exportés via des fichiers index
+- **Structure modulaire** : Chaque dossier a une responsabilité claire
+- **Type safety** : TypeScript configuré strictement
 
 ## Learn More
 
