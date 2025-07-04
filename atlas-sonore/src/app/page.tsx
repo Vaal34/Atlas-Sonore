@@ -19,7 +19,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen text-white space-y-8">
+    <div className="flex flex-col justify-center items-center h-screen text-white space-y-6">
       <BubbleBackground
         className="absolute inset-0 -z-10"
         colors={{
@@ -32,11 +32,11 @@ export default async function Home() {
         }}
         interactive={true}
       />
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-2">
         <GradientText
           text="Atlas Sonore"
-          className="text-4xl font-bold"
-          gradient="linear-gradient(90deg, #1ED760 0%, rgb(221,74,255) 25%, #1ED760 50%, rgb(140,100,255) 75%, #1ED760 100%)"
+          className="text-7xl font-bold"
+          gradient="linear-gradient(75deg, #1ED760 0%, rgb(221,74,255) 25%, #1ED760 50%, rgb(140,100,255) 75%, #1ED760 100%)"
         />
         <RotatingText
           text={[
@@ -47,24 +47,24 @@ export default async function Home() {
             "Connetti con Spotify per iniziare",
           ]}
           duration={3000}
-          className="font-light text-shadow-neutral-400 text-lg"
+          className="font-light text-shadow-neutral-400 text-lg font"
         />
       </div>
 
       <Link href="/api/auth/spotify">
         <FlipButton
+          className="font-semibold "
           from="top"
           frontClassName="bg-spotify-green"
           backClassName="bg-spotify-black border-spotify-green border"
           frontText="Se connecter avec Spotify"
           backContent={
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 animate-pulse">
               <img
                 src="/Primary_Logo_Green_PMS_U.svg"
                 alt="Spotify"
                 className="w-5 h-5"
               />
-              <span>Spotify</span>
             </div>
           }
         />
