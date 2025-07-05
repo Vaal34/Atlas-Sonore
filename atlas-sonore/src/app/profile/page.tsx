@@ -1,7 +1,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import TopTracks from "@/components/TopTracks";
 
 export default async function Profile() {
   const supabase = await createClient();
@@ -14,6 +13,7 @@ export default async function Profile() {
   if (error || !user) {
     redirect("/");
   }
+
   return (
     <div className="min-h-screen text-white p-8">
       <div className="max-w-4xl mx-auto">
@@ -61,6 +61,30 @@ export default async function Profile() {
             <pre className=" p-3 rounded text-xs overflow-auto">
               {JSON.stringify(user.user_metadata, null, 2)}
             </pre>
+          </div>
+
+          <div className="pt-4 border-t border-gray-700">
+            <h3 className="text-lg font-semibold mb-4 text-green-500">
+              Tester l'API Spotify
+            </h3>
+            <div className="space-y-2">
+              <a
+                href="/api/spotify/user/top-tracks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-spotify-green hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors"
+              >
+                Voir mes Top Tracks
+              </a>
+              <a
+                href="/api/spotify/user/top-tracks?limit=10&time_range=short_term"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-spotify-green hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition-colors ml-2"
+              >
+                Top 10 (Court terme)
+              </a>
+            </div>
           </div>
         </div>
 

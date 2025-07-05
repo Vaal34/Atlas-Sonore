@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { QueryProvider } from "@/components/QueryProvider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -10,7 +11,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Atlas Sonore",
-  description: "Connectez-vous avec Spotify pour découvrir votre univers musical",
+  description:
+    "Connectez-vous avec Spotify pour découvrir votre univers musical",
 };
 
 export default function RootLayout({
@@ -20,11 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} antialiased bg-spotify-black font-montserrat`}
-      >
-        {children}
-      </body>
+      <QueryProvider>
+        <body
+          className={`${montserrat.variable} antialiased bg-spotify-black font-montserrat`}
+        >
+          {children}
+        </body>
+      </QueryProvider>
     </html>
   );
 }

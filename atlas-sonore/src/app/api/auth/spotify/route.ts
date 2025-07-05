@@ -8,6 +8,7 @@ export async function GET(request: NextRequest) {
     provider: 'spotify',
     options: {
       redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback?next=/profile`,
+      scopes: 'user-top-read user-read-private user-read-email user-library-read playlist-read-private'
     },
   })
 

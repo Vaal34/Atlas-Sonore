@@ -1,2 +1,3 @@
 // Export de tous les composants
-export * from './ui'; 
+export * from "./QueryProvider";
+export * from "./ui";
