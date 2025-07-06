@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/components/QueryProvider";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -26,7 +27,10 @@ export default function RootLayout({
         className={`${montserrat.variable} antialiased bg-spotify-black font-montserrat`}
         suppressHydrationWarning={true}
       >
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          {children}
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryProvider>
       </body>
     </html>
   );

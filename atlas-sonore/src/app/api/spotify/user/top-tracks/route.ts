@@ -131,10 +131,6 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       tracks: formattedTracks,
-      total: spotifyData.total,
-      limit: parseInt(limit),
-      offset: parseInt(offset),
-      time_range: timeRange,
       artistsProcessed: artistRequests.length,
     });
 
