@@ -22,13 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <QueryProvider>
-        <body
-          className={`${montserrat.variable} antialiased bg-spotify-black font-montserrat`}
-        >
-          {children}
-        </body>
-      </QueryProvider>
+      <body
+        className={`${montserrat.variable} antialiased bg-spotify-black font-montserrat`}
+        suppressHydrationWarning={true}
+      >
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
